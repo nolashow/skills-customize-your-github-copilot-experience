@@ -1,0 +1,39 @@
+name: CI: Build & Test Docker
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -r assignments/fastapi-rest-apis/requirements.txt || true
+
+    - name: Run tests (if any)
+      run: |
+        echo "No tests found" || true
+
+    - name: Build Docker image
+      run: |
+        docker build -t mergington-fastapi:latest -f assignments/deployment-devops-basics/Dockerfile .
+
+    - name: (Optional) Push image
+      if: false
+      run: |
+        # Demonstrate pushing to registry using secrets
+        echo "Skipping push by default"

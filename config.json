@@ -74,5 +74,25 @@
             }
           ]
         }
+        ,
+        {
+          "id": "deployment-devops-basics",
+          "title": "Deployment & DevOps Basics (Docker + CI)",
+          "description": "Teach packaging, containerization, and a simple CI workflow using Docker and GitHub Actions.",
+          "path": "assignments/deployment-devops-basics",
+          "dueDate": "2025-11-27",
+          "attachments": [
+            {
+              "name": "Dockerfile",
+              "file": "Dockerfile",
+              "type": "docker"
+            },
+            {
+              "name": "CI sample",
+              "file": "sample-workflow.yml",
+              "type": "yaml"
+            }
+          ]
+        }
   ]
 }
